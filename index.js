@@ -156,7 +156,7 @@ Use the getReviewsByRating function below to do the following:
 
  function getReviewByRating(arr, rating) {
     const ratingsWithinRange = [];
-    
+
     for(const review of arr){
       if(review.rating >= rating && review.rating <= (rating + 0.9)) ratingsWithinRange.push(review)
     }
@@ -176,10 +176,15 @@ Use the getLongReviews function below to do the following:
   ]
 */
 
-function getLongReviews(/* code here */) {
-    /* code here */
+function getLongReviews(arr) {
+  const longReviews = [];
+
+  for(const review of arr){
+   if(review.feedback.split(" ").length > 15) longReviews.push(review);
   }
-  
+
+  return longReviews;
+  }
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 3: 💪💪💪💪💪💪💪💪💪💪 
 This stretch goal does not use the reviews data!  You create your own object in this stretch goal.
@@ -198,11 +203,19 @@ Use the carMaker function below to do the following:
   It would return 110 because it was created with 10 as the odometer and we added 100 to it with the drive method 
 */
 
-
-function carMaker(/* code here */) {
-    /* code here */
-    
+function carMaker(odometerStart) {
+  const newCar = {
+    odometer: odometerStart, // default odometer setting
+    drive: function(distance){
+      this.odometer += distance;
+      return this.odometer
+    }
+  }
+  return newCar;
 }
+
+
+
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
